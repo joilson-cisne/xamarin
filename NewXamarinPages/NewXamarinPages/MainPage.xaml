@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:ListDataPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:p="clr-namespace:Xamarin.Forms.Pages;assembly=Xamarin.Forms.Pages"
+			xmlns:mytheme="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"
+            x:Class="NewXamarinPages.QuestionsPage"
+			StyleClass="Events" Title="Perguntas">
+
+	<p:ListDataPage.Resources>
+        <ResourceDictionary MergedWith="mytheme:LightThemeResources" />
+    </p:ListDataPage.Resources>
+
+	<p:ListDataPage.DefaultItemTemplate>
+	    <DataTemplate>
+	        <ViewCell>
+	            <p:ListItemControl
+	                Title="{p:DataSourceBinding title}"
+	                Detail="{p:DataSourceBinding room}"
+	                ImageSource="{p:DataSourceBinding image}"
+	                DataSource="{Binding Value}"
+	                HeightRequest="90"
+	            >
+	            </p:ListItemControl>
+	        </ViewCell>
+	    </DataTemplate>
+	</p:ListDataPage.DefaultItemTemplate>
+
+	<p:ListDataPage.DataSource>
+	    <p:JsonDataSource Source="http://demo3143189.mockable.io/sessions" />
+	</p:ListDataPage.DataSource>
+
+</p:ListDataPage>
